@@ -20,8 +20,7 @@ class UsersController < ApplicationController # rubocop:disable Layout/EmptyLine
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    if @user.save
+    if @user.update(user_params)
       redirect_to user_path
     else
       render :edit, status: :unprocessable_entity
